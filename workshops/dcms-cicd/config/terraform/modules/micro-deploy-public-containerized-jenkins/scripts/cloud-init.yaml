@@ -82,6 +82,7 @@ write_files:
     RUN curl -fsSLo /usr/share/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg && \
     echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
     # install kubectl
+    curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key --keyring /usr/share/keyrings/cloud.google.gpg add -
     RUN sudo apt-get update && sudo apt-get install -y kubectl
     # install sqlcl
     RUN curl https://download.oracle.com/otn_software/java/sqldeveloper/sqlcl-22.2.0.172.1718.zip -o sqlcl-latest.zip && \
